@@ -6,7 +6,7 @@
 docker build . -t rogermiret/cron-mega-backup
 ```
 
-## Run
+## Run (cron job)
 
 ``` shell
 docker run -d \
@@ -40,3 +40,12 @@ docker run -d \
 ### How to find my session secret
 
 Run `docker run --rm -it rogermiret/megacmd` and log in using `mega-login --auth-code CODE EMAIL PASSWORD`. After logging in, run `mega-session` to get your secret session.
+
+
+## Run (manually) 
+
+This requires that the container is running (see "[Run (cron job)](#run-cron-job)").
+
+``` shell
+docker exec cron-mega-backup /backup.sh
+```
